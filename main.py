@@ -38,4 +38,4 @@ if __name__ == '__main__':
 
             except Exception as e:
                 print(e)
-                pyttsx3.speak("Unable to send")
+                pyttsx3.speak("Unable to send the message - check ")
