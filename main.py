@@ -114,7 +114,7 @@ if __name__ == '__main__':
 
 
         elif 'play music' in query:
-            songs_dir = '========================='   # path-----------------------------
+            songs_dir = 'C:\music'   # path-----------------------------
             music = os.listdir(songs_dir)
             speak('What should I play for you?')
             speak('Select a number....')
@@ -145,7 +145,7 @@ if __name__ == '__main__':
 
         elif 'news' in query:
             try:
-                jsonObj = urlopen("===============================")    # url-------------------------------
+                jsonObj = urlopen("https://newsapi.org/v2/everything?q=tesla&from=2021-04-08&sortBy=publishedAt&apiKey=26c630d9757c4ef9b4c11a550821ff42")    # url-------------------------------
                 data = json.load(jsonObj)
                 i = 1
 

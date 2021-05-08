@@ -5,18 +5,18 @@ import datetime
 
 
 def WishMe():
-    speak("WELCOME BACK PRITAM")
+    speak("WELCOME BACK SIR")
     datetime.time()
     # datetime.date()
 
     hour = datetime.datetime.now().hour
     if hour >= 6 and hour <=12:
-        speak("Good Morning Pritam")
+        speak("Good Morning Sir")
     elif hour >= 12 and hour <=18:
-        speak("Good Afternoon Pritam")
+        speak("Good Afternoon Sir!")
     elif hour >= 18 and hour <=24:
-        speak("Good Evening Pritam")
+        speak("Good Evening Sir")
     else:
-        speak("HAVE A GOOD DAY AHEAD PRITAM")
+        speak("HAVE A GOOD DAY AHEAD SIR")
 
-    speak("HI PRITAM, WHAT CAN I HELP YOU")
+    speak("HELLO SIR, WHAT CAN I HELP YOU")

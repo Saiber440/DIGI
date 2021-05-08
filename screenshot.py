@@ -4,7 +4,7 @@ import pyautogui
 
 def screenshot():
     img = pyautogui.screenshot()
-    img.save('===========================')     #path of file------------------
+    img.save('C:\ssc')     #path of file------------------
 
 
 
