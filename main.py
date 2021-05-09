@@ -3,7 +3,7 @@ import wikipedia
 from TakeCommand import TakeCommand
 from WishMe import WishMe
 from SendEmail import SendEmail
-from DateAndTime import datetime
+from DateAndTime import datetime, time, date
 from cpu import cpu
 from joke import joke
 from Speak import speak
@@ -14,6 +14,10 @@ import json
 from urllib.request import urlopen
 import webbrowser as wb
 engine = pyttsx3.init()
+# ====================================================
+
+engine.setProperty('voice', 'com.apple.speech.synthesis.voice.samantha')
+
 
 
 
@@ -125,7 +129,7 @@ if __name__ == '__main__':
             if 'number' in ans:
                 no = int(ans.replace('number', ''))
             elif 'random' or 'you choose' in ans:
-                no = random.randint(1, 10000)
+                no = random.randint(1, 100)
                 os.startfile(os.path.join(songs_dir, music[no]))
 
 
