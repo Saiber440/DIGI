@@ -16,13 +16,16 @@ import webbrowser as wb
 engine = pyttsx3.init()
 # ====================================================
 
-engine.setProperty('voice', 'com.apple.speech.synthesis.voice.samantha')
+
+# ==============///////////// Female Voice Command \\\\\\\\\\\=========================
 
 
+voices = engine.getProperty('voices')       # getting details of current voice
+# engine.setProperty('voice', voices[0].id)  #changing index, changes voices. o for male
+engine.setProperty('voice', voices[1].id)   # changing index, changes voices. 1 for female
 
 
-# ========================================
-
+# ============================================================================
 
 
 # ========================== Pritam Day =========================
@@ -88,7 +91,7 @@ if __name__ == '__main__':
             os.startfile(ma_word)
 
 
-        elif'write a note ' in query:
+        elif 'write a note ' in query:
             speak("What should I Write, Sir? ")
             notes = TakeCommand()
             file = open('notes.txt', 'w')
