@@ -13,19 +13,20 @@ import random
 import json
 from urllib.request import urlopen
 import webbrowser as wb
-engine = pyttsx3.init()
+import wolframalpha
+import time
+import pywhatkit
 # ====================================================
+engine = pyttsx3.init()
+voices=engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)
+wolframalpha_app_id = 'EJ3QJT-2YHHU3AYK7'
 
 
-# ==============///////////// Female Voice Command \\\\\\\\\\\=========================
 
 
-voices = engine.getProperty('voices')       # getting details of current voice
-# engine.setProperty('voice', voices[0].id)  #changing index, changes voices. o for male
-engine.setProperty('voice', voices[1].id)   # changing index, changes voices. 1 for female
+# ========================================
 
-
-# ============================================================================
 
 
 # ========================== Pritam Day =========================
@@ -91,7 +92,7 @@ if __name__ == '__main__':
             os.startfile(ma_word)
 
 
-        elif 'write a note ' in query:
+        elif'write a note ' in query:
             speak("What should I Write, Sir? ")
             notes = TakeCommand()
             file = open('notes.txt', 'w')
@@ -118,29 +119,17 @@ if __name__ == '__main__':
         elif 'screenshot' in query:
             screenshot()
 
-
-
         elif 'play music' in query:
-            songs_dir = 'C:\music'   # path-----------------------------
-            music = os.listdir(songs_dir)
             speak('What should I play for you?')
-            speak('Select a number....')
             ans = TakeCommand().lower()
-            while 'number' not in ans and ans != 'random' and ans != 'you choose':
-                speak('I could not understand you . Please try again.')
-                ans = TakeCommand().lower()
-            if 'number' in ans:
-                no = int(ans.replace('number', ''))
-            elif 'random' or 'you choose' in ans:
-                no = random.randint(1, 100)
-                os.startfile(os.path.join(songs_dir, music[no]))
-
+            speak('playing ' + ans)
+            pywhatkit.playonyt(ans)
 
 
         elif 'remember that' in query:
             speak("What should I remember Sir?")
             memory = TakeCommand()
-            speak("0You asked me to remember that"+memory)
+            speak("You asked me to remember that"+memory)
             remember = open(('memory.txt', 'w'))
             remember.write(memory)
             remember.close()
@@ -178,4 +167,26 @@ if __name__ == '__main__':
 
 
 # ============================= Budhaditya Sarkar ===================================
+        elif 'calculate' in query:
+            client = wolframalpha.Client(wolframalpha_app_id)
+            indx = query.lower().split().index('calculate')
+            query = query.split()[indx + 1:]
+            res = client.query(''.join(query))
+            answer = next(res.results).text
+            print("The answer is : " + answer)
+            speak("The answer is " + answer)
 
+        elif 'what is' in query or 'who is' in query:
+            client = wolframalpha.Client(wolframalpha_app_id)
+            res = client.query(query)
+            try:
+                print(next(res.results).text)
+                speak(next(res.results).text)
+            except StopIteration:
+                print("No Results")
+
+        elif 'stop Listening' in query:
+            speak('For how many seconds should I stop listening?')
+            ans=int(TakeCommand())
+            time.sleep(ans)
+            print(ans)
