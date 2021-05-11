@@ -1,9 +1,9 @@
 import pyttsx3
-import wikipedia
 from TakeCommand import TakeCommand
+from Wikipedia import wiki
 from WishMe import WishMe
-from SendEmail import SendEmail
-from DateAndTime import datetime, time, date
+from SendEmail import tryout, exception
+from DateAndTime import datetime, date, time
 from cpu import cpu
 from joke import joke
 from Speak import speak
@@ -14,23 +14,17 @@ import json
 from urllib.request import urlopen
 import webbrowser as wb
 import wolframalpha
-import time
 import pywhatkit
+
 # ====================================================
 engine = pyttsx3.init()
-voices=engine.getProperty('voices')
+voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 wolframalpha_app_id = 'EJ3QJT-2YHHU3AYK7'
-
-
-
-
 # ========================================
 
 
-
 # ========================== Pritam Day =========================
-
 
 
 if __name__ == '__main__':
@@ -42,35 +36,24 @@ if __name__ == '__main__':
 
         if 'time' in query:
             time()
+
+
         elif 'date' in query:
             date()
+
+
         elif 'wikipedia' in query:
-            speak("Searching...")
-            query = query.replace("Wikipedia", "")
-            result = wikipedia.summary(query, sentences=3)
-            speak("According to Wikipedia")
-            print(result)
-            speak(result)
+            wiki()
+
+
         elif 'send email' in query:
             try:
-                speak("What should I say?")
-                content = TakeCommand()
-                speak("Who is the receiver?")
-                receiver = input("Enter Receiver Email :")
-                to = receiver
-                SendEmail(to, content)
-                speak(content)
-                speak("Email has been sent")
-
-            except Exception as e:
-                print(e)
-                speak("Unable to send")
-
+                tryout()
+            except:
+                exception()
 
 
 # ========================== Biswajit Kar =========================
-
-
 
 
         elif 'cpu' in query:
@@ -88,11 +71,11 @@ if __name__ == '__main__':
 
         elif 'word' in query:
             speak('Opening MS word...')
-            ma_word = r' ==============================.exe'           # path for the app
+            ma_word = r' ==============================.exe'  # path for the app
             os.startfile(ma_word)
 
 
-        elif'write a note ' in query:
+        elif 'write a note ' in query:
             speak("What should I Write, Sir? ")
             notes = TakeCommand()
             file = open('notes.txt', 'w')
@@ -115,10 +98,8 @@ if __name__ == '__main__':
             speak(file.read())
 
 
-
         elif 'screenshot' in query:
             screenshot()
-
 
 
         elif 'play music' in query:
@@ -131,8 +112,9 @@ if __name__ == '__main__':
                 speak('playing ' + ans)
                 pywhatkit.playonyt(ans)
 
+
             elif 'offline' in query:
-                songs_dir = 'C:\music'   # path-----------------------------
+                songs_dir = 'C:\music'  # path-----------------------------
                 music = os.listdir(songs_dir)
                 speak('What should I play for you?')
                 speak('Select a number....')
@@ -150,28 +132,29 @@ if __name__ == '__main__':
         elif 'remember that' in query:
             speak("What should I remember Sir?")
             memory = TakeCommand()
-            speak("You asked me to remember that"+memory)
+            speak("You asked me to remember that" + memory)
             remember = open(('memory.txt', 'w'))
             remember.write(memory)
             remember.close()
+
+
         elif 'do you remember anything' in query:
             remember = open('memory.txt', 'r')
-            speak(' You asked me to remember that '+remember.read())
-
+            speak(' You asked me to remember that ' + remember.read())
 
 
         elif 'news' in query:
             try:
-                jsonObj = urlopen("https://newsapi.org/v2/everything?q=tesla&from=2021-04-08&sortBy=publishedAt&apiKey=26c630d9757c4ef9b4c11a550821ff42")    # url-------------------------------
+                jsonObj = urlopen(
+                    "https://newsapi.org/v2/everything?q=tesla&from=2021-04-08&sortBy=publishedAt&apiKey=26c630d9757c4ef9b4c11a550821ff42")  # url-------------------------------
                 data = json.load(jsonObj)
                 i = 1
 
-
                 speak("Here are some top headline for You ")
-                print('=================== TOP HEADLINES ==================='+'\n')
+                print('=================== TOP HEADLINES ===================' + '\n')
                 for item in data['articles']:
-                    print((str(i))+'.'+item['title'] + '\n')
-                    print(item['description']+'\n')
+                    print((str(i)) + '.' + item['title'] + '\n')
+                    print(item['description'] + '\n')
                     speak(item['title'])
                     i += 1
 
@@ -179,15 +162,14 @@ if __name__ == '__main__':
                 print(str(e))
 
 
-
-        elif'where is' in query:
+        elif 'where is' in query:
             query = query.replace("where is", " ")
             location = query
-            speak("User asked to locate "+location)
-            wb.open_new_tab("https://www.google.com/maps/place"+location)
+            speak("User asked to locate " + location)
+            wb.open_new_tab("https://www.google.com/maps/place" + location)
 
 
-# ============================= Budhaditya Sarkar ===================================
+ # ============================= Budhaditya Sarkar ===================================
         elif 'calculate' in query:
             client = wolframalpha.Client(wolframalpha_app_id)
             indx = query.lower().split().index('calculate')
@@ -196,6 +178,7 @@ if __name__ == '__main__':
             answer = next(res.results).text
             print("The answer is : " + answer)
             speak("The answer is " + answer)
+
 
         elif 'what is' in query or 'who is' in query:
             client = wolframalpha.Client(wolframalpha_app_id)
@@ -206,8 +189,9 @@ if __name__ == '__main__':
             except StopIteration:
                 print("No Results")
 
+
         elif 'stop Listening' in query:
             speak('For how many seconds should I stop listening?')
-            ans=int(TakeCommand())
+            ans = int(TakeCommand())
             time.sleep(ans)
             print(ans)
