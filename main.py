@@ -16,6 +16,7 @@ import webbrowser as wb
 import wolframalpha
 import pywhatkit
 
+
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -32,21 +33,26 @@ if __name__ == '__main__':
     WishMe()
 
     while True:
+
         query = TakeCommand().lower()
 
         if 'time' in query:
+
             time()
 
 
         elif 'date' in query:
+
             date()
 
 
         elif 'wikipedia' in query:
+
             wiki()
 
 
         elif 'send email' in query:
+
             try:
                 tryout()
             except:
@@ -57,25 +63,30 @@ if __name__ == '__main__':
 
 
         elif 'cpu' in query:
+
             cpu()
 
 
         elif 'joke' in query:
+
             joke()
 
 
         elif 'go offline' in query:
+
             speak('Going offline Sir!  See yaa')
             quit()
 
 
         elif 'word' in query:
+
             speak('Opening MS word...')
             ma_word = r' ==============================.exe'  # path for the app
             os.startfile(ma_word)
 
 
         elif 'write a note ' in query:
+
             speak("What should I Write, Sir? ")
             notes = TakeCommand()
             file = open('notes.txt', 'w')
@@ -92,6 +103,7 @@ if __name__ == '__main__':
 
 
         elif 'Show me notes' in query:
+
             speak('Showing NOTES')
             file = open('notes.txt', 'r')
             print(file.read())
@@ -99,10 +111,12 @@ if __name__ == '__main__':
 
 
         elif 'screenshot' in query:
+
             screenshot()
 
 
         elif 'play music' in query:
+
             speak('You like to listen Online or Offline?')
             ans = TakeCommand().lower()
             if 'online' in ans:
@@ -114,6 +128,7 @@ if __name__ == '__main__':
 
 
             elif 'offline' in query:
+
                 songs_dir = 'C:\music'  # path-----------------------------
                 music = os.listdir(songs_dir)
                 speak('What should I play for you?')
@@ -130,6 +145,7 @@ if __name__ == '__main__':
 
 
         elif 'remember that' in query:
+
             speak("What should I remember Sir?")
             memory = TakeCommand()
             speak("You asked me to remember that" + memory)
@@ -139,11 +155,13 @@ if __name__ == '__main__':
 
 
         elif 'do you remember anything' in query:
+
             remember = open('memory.txt', 'r')
             speak(' You asked me to remember that ' + remember.read())
 
 
         elif 'news' in query:
+
             try:
                 jsonObj = urlopen(
                     "https://newsapi.org/v2/everything?q=tesla&from=2021-04-08&sortBy=publishedAt&apiKey=26c630d9757c4ef9b4c11a550821ff42")  # url-------------------------------
@@ -163,6 +181,7 @@ if __name__ == '__main__':
 
 
         elif 'where is' in query:
+
             query = query.replace("where is", " ")
             location = query
             speak("User asked to locate " + location)
@@ -170,7 +189,10 @@ if __name__ == '__main__':
 
 
  # ============================= Budhaditya Sarkar ===================================
+
+
         elif 'calculate' in query:
+
             client = wolframalpha.Client(wolframalpha_app_id)
             indx = query.lower().split().index('calculate')
             query = query.split()[indx + 1:]
@@ -181,6 +203,7 @@ if __name__ == '__main__':
 
 
         elif 'what is' in query or 'who is' in query:
+
             client = wolframalpha.Client(wolframalpha_app_id)
             res = client.query(query)
             try:
@@ -191,6 +214,7 @@ if __name__ == '__main__':
 
 
         elif 'stop Listening' in query:
+
             speak('For how many seconds should I stop listening?')
             ans = int(TakeCommand())
             time.sleep(ans)
