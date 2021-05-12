@@ -1,7 +1,8 @@
+import datetime
 from Speak import speak
 import pyttsx3
 engine = pyttsx3.init()
-import datetime
+
 
 
 def time():
