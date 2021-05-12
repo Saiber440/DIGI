@@ -13,15 +13,20 @@ import random
 import json
 from urllib.request import urlopen
 import webbrowser as wb
-import wolframalpha
+from calculate import calculate
+from sleep import sleep
+from lrs import logout
+from lrs import restart
+from lrs import shutdown
 import pywhatkit
+
 
 
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
-wolframalpha_app_id = 'EJ3QJT-2YHHU3AYK7'
+
 # ========================================
 
 
@@ -46,9 +51,9 @@ if __name__ == '__main__':
             date()
 
 
-        elif 'wikipedia' in query:
+        elif 'who is' in query:
 
-            wiki()
+            wiki(query)
 
 
         elif 'send email' in query:
@@ -193,29 +198,14 @@ if __name__ == '__main__':
 
         elif 'calculate' in query:
 
-            client = wolframalpha.Client(wolframalpha_app_id)
-            indx = query.lower().split().index('calculate')
-            query = query.split()[indx + 1:]
-            res = client.query(''.join(query))
-            answer = next(res.results).text
-            print("The answer is : " + answer)
-            speak("The answer is " + answer)
+            calculate(query)
 
+        elif 'stop Listening' in query:  # not speaking and not working
+            sleep()
 
-        elif 'what is' in query or 'who is' in query:
-
-            client = wolframalpha.Client(wolframalpha_app_id)
-            res = client.query(query)
-            try:
-                print(next(res.results).text)
-                speak(next(res.results).text)
-            except StopIteration:
-                print("No Results")
-
-
-        elif 'stop Listening' in query:
-
-            speak('For how many seconds should I stop listening?')
-            ans = int(TakeCommand())
-            time.sleep(ans)
-            print(ans)
+        elif 'log out' in query:  # Not working
+            logout()  # imported from lrs
+        elif 'restart' in query:
+            restart()
+        elif 'shutdown' in query:
+            shutdown()
