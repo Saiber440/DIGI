@@ -1,0 +1,8 @@
+from Speak import speak
+from TakeCommand import TakeCommand
+import webbrowser as wb
+
+def YouTubeSearch():
+    speak('What to search?')
+    search_Term = TakeCommand().lower()
+    wb.open('https://youtube.com/results?search_query=' + search_Term)

@@ -1,4 +1,7 @@
 import pyttsx3
+import Chrome
+from SearchGoogle import GoogleSearch
+from YouTube import YouTubeSearch
 from TakeCommand import TakeCommand
 from Wikipedia import wiki
 from WishMe import WishMe
@@ -15,7 +18,6 @@ from urllib.request import urlopen
 import webbrowser as wb
 import wolframalpha
 import pywhatkit
-
 
 # ====================================================
 engine = pyttsx3.init()
@@ -37,30 +39,31 @@ if __name__ == '__main__':
         query = TakeCommand().lower()
 
         if 'time' in query:
-
             time()
 
-
         elif 'date' in query:
-
             date()
 
-
         elif 'wikipedia' in query:
-
             wiki()
 
-
         elif 'send email' in query:
-
             try:
                 tryout()
             except:
                 exception()
 
+        elif 'search internet' in query:
+            Chrome.ChromeSearch()
 
-# ========================== Biswajit Kar =========================
+        elif 'search youtube' in query:
+            YouTubeSearch()
 
+        elif 'search google' in query:
+            GoogleSearch()
+
+
+        # ========================== Biswajit Kar =========================
 
         elif 'cpu' in query:
 
@@ -188,8 +191,7 @@ if __name__ == '__main__':
             wb.open_new_tab("https://www.google.com/maps/place" + location)
 
 
- # ============================= Budhaditya Sarkar ===================================
-
+        # ============================= Budhaditya Sarkar ===================================
 
         elif 'calculate' in query:
 
