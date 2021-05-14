@@ -6,19 +6,23 @@ from TakeCommand import TakeCommand
 from Wikipedia import wiki
 from WishMe import WishMe
 from SendEmail import tryout, exception
-from DateAndTime import datetime, date, time
+from DateAndTime import date, time
 from cpu import cpu
 from joke import joke
 from Speak import speak
 from screenshot import screenshot
 import os
-import random
-import json
-from urllib.request import urlopen
-import webbrowser as wb
+from calculate import calculate
+from lrs import logout, restart, shutdown
 import wolframalpha
-import pywhatkit
-
+from sleep import sleep
+from news import news
+from music import music
+from remember import remember_that, remember_anything
+from note import write_note,show_note
+from location import locate
+from offline import offline
+from word import word
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -66,146 +70,47 @@ if __name__ == '__main__':
         # ========================== Biswajit Kar =========================
 
         elif 'cpu' in query:
-
             cpu()
 
-
         elif 'joke' in query:
-
             joke()
 
-
         elif 'go offline' in query:
-
-            speak('Going offline Sir!  See yaa')
-            quit()
-
+            offline()
 
         elif 'word' in query:
-
-            speak('Opening MS word...')
-            ma_word = r' ==============================.exe'  # path for the app
-            os.startfile(ma_word)
-
+            word()
 
         elif 'write a note ' in query:
-
-            speak("What should I Write, Sir? ")
-            notes = TakeCommand()
-            file = open('notes.txt', 'w')
-            speak("Sir Should I include date and time ")
-            ans = TakeCommand()
-            if 'yes' in ans or 'sure' in ans or 'yup' in ans or 'yaa' in ans:
-                strTime = datetime.datetime.now().strftime("%H:%M:%S")
-                file.write(strTime)
-                file.write(':-')
-                file.write(notes)
-                speak('I got your note ,Sir!')
-            else:
-                file.write(notes)
-
+            write_note()
 
         elif 'Show me notes' in query:
-
-            speak('Showing NOTES')
-            file = open('notes.txt', 'r')
-            print(file.read())
-            speak(file.read())
-
+            show_note()
 
         elif 'screenshot' in query:
-
             screenshot()
 
-
         elif 'play music' in query:
-
-            speak('You like to listen Online or Offline?')
-            ans = TakeCommand().lower()
-            if 'online' in ans:
-                ans = TakeCommand().lower()
-                speak('What should I play for you?')
-                ans = TakeCommand().lower()
-                speak('playing ' + ans)
-                pywhatkit.playonyt(ans)
-
-
-            elif 'offline' in query:
-
-                songs_dir = 'C:\music'  # path-----------------------------
-                music = os.listdir(songs_dir)
-                speak('What should I play for you?')
-                speak('Select a number....')
-                ans = TakeCommand().lower()
-                while 'number' not in ans and ans != 'random' and ans != 'you choose':
-                    speak('I could not understand you . Please try again.')
-                    ans = TakeCommand().lower()
-                if 'number' in ans:
-                    no = int(ans.replace('number', ''))
-                elif 'random' or 'you choose' in ans:
-                    no = random.randint(1, 100)
-                    os.startfile(os.path.join(songs_dir, music[no]))
-
+            music()
 
         elif 'remember that' in query:
-
-            speak("What should I remember Sir?")
-            memory = TakeCommand()
-            speak("You asked me to remember that" + memory)
-            remember = open(('memory.txt', 'w'))
-            remember.write(memory)
-            remember.close()
-
+            remember_that()
 
         elif 'do you remember anything' in query:
-
-            remember = open('memory.txt', 'r')
-            speak(' You asked me to remember that ' + remember.read())
-
+            remember_anything()
 
         elif 'news' in query:
-
-            try:
-                jsonObj = urlopen(
-                    "https://newsapi.org/v2/everything?q=tesla&from=2021-04-08&sortBy=publishedAt&apiKey=26c630d9757c4ef9b4c11a550821ff42")  # url-------------------------------
-                data = json.load(jsonObj)
-                i = 1
-
-                speak("Here are some top headline for You ")
-                print('=================== TOP HEADLINES ===================' + '\n')
-                for item in data['articles']:
-                    print((str(i)) + '.' + item['title'] + '\n')
-                    print(item['description'] + '\n')
-                    speak(item['title'])
-                    i += 1
-
-            except Exception as e:
-                print(str(e))
-
+            news()
 
         elif 'where is' in query:
-
-            query = query.replace("where is", " ")
-            location = query
-            speak("User asked to locate " + location)
-            wb.open_new_tab("https://www.google.com/maps/place" + location)
-
+            locate()
 
         # ============================= Budhaditya Sarkar ===================================
 
         elif 'calculate' in query:
+            calculate(query)
 
-            client = wolframalpha.Client(wolframalpha_app_id)
-            indx = query.lower().split().index('calculate')
-            query = query.split()[indx + 1:]
-            res = client.query(''.join(query))
-            answer = next(res.results).text
-            print("The answer is : " + answer)
-            speak("The answer is " + answer)
-
-
-        elif 'what is' in query or 'who is' in query:
-
+        elif 'what is' in query:
             client = wolframalpha.Client(wolframalpha_app_id)
             res = client.query(query)
             try:
@@ -214,10 +119,13 @@ if __name__ == '__main__':
             except StopIteration:
                 print("No Results")
 
+        elif 'stop Listening' in query: #Not Working
+            sleep()
 
-        elif 'stop Listening' in query:
+        elif 'logout' in query: #Logout, restart and shutdown not working
+            logout()
+        elif 'restart' in query:
+            restart()
+        elif 'shutdown' in query:
+            shutdown()
 
-            speak('For how many seconds should I stop listening?')
-            ans = int(TakeCommand())
-            time.sleep(ans)
-            print(ans)
