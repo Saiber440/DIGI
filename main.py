@@ -11,7 +11,6 @@ from cpu import cpu
 from joke import joke
 from Speak import speak
 from screenshot import screenshot
-import os
 from calculate import calculate
 from lrs import logout, restart, shutdown
 import wolframalpha
@@ -23,6 +22,9 @@ from note import write_note,show_note
 from location import locate
 from offline import offline
 from word import word
+from whatsappMessage import WhatsAppMessage
+from ReadSelectedText import read
+from WeatherUpdates import weather
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -119,13 +121,21 @@ if __name__ == '__main__':
             except StopIteration:
                 print("No Results")
 
-        elif 'stop Listening' in query: #Not Working
+        elif 'stop Listening' in query: # Not Working
             sleep()
 
-        elif 'logout' in query: #Logout, restart and shutdown not working
+        elif 'logout' in query: # Logout, restart and shutdown not working
             logout()
         elif 'restart' in query:
             restart()
         elif 'shutdown' in query:
             shutdown()
 
+        elif 'whatsapp message' in query:
+            WhatsAppMessage()
+
+        elif 'Weather' in query:
+            weather()
+
+        elif 'read' in query:
+            read()
