@@ -74,59 +74,6 @@ if __name__ == '__main__':
             GoogleSearch()
 
 
-        # ========================== Biswajit Kar =========================
-
-        elif 'cpu' in query:
-            cpu()
-
-        elif 'joke' in query:
-            joke()
-
-        elif 'go offline' in query:
-            offline()
-
-        elif 'msword' in query:
-            word()
-
-        elif 'write a note ' in query:
-            write_note()
-
-        elif 'Show me notes' in query:
-            show_note()
-
-        elif 'screenshot' in query:
-            screenshot()
-
-        elif 'play music' in query:
-            music()
-
-        elif 'remember that' in query:
-            remember_that()
-
-        elif 'do you remember anything' in query:
-            remember_anything()
-
-        elif 'news' in query:
-            news()
-
-        elif 'where is' in query:
-            locate()
-
-
-
-
-
-        elif 'open app' in query:
-            app()
-
-        elif 'open my doc' in query:
-            os.system('explorer C://{}'.format(query.replace('Open','')))
-
-
-        elif 'generate password' in query:
-            passwordgen()
-
-
         # ============================= Budhaditya Sarkar ===================================
 
         elif 'calculate' in query:

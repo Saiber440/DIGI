@@ -38,6 +38,7 @@ wolframalpha_app_id = 'EJ3QJT-2YHHU3AYK7'
 # ========================================
 
 
+
 # ========================== Pritam Day =========================
 
 
@@ -125,37 +126,3 @@ if __name__ == '__main__':
 
         elif 'generate password' in query:
             passwordgen()
-
-
-        # ============================= Budhaditya Sarkar ===================================
-
-        elif 'calculate' in query:
-            calculate(query)
-
-        elif 'what is' in query:
-            client = wolframalpha.Client(wolframalpha_app_id)
-            res = client.query(query)
-            try:
-                print(next(res.results).text)
-                speak(next(res.results).text)
-            except StopIteration:
-                print("No Results")
-
-        elif 'stop Listening' in query: # Not Working
-            sleep()
-
-        elif 'logout' in query: # Logout, restart and shutdown not working
-            logout()
-        elif 'restart' in query:
-            restart()
-        elif 'shutdown' in query:
-            shutdown()
-
-        elif 'whatsapp message' in query:
-            WhatsAppMessage()
-
-        elif 'Weather' in query:
-            weather()
-
-        elif 'read' in query:
-            read()
