@@ -1,5 +1,5 @@
 import speech_recognition as sr
-
+from Speak import speak
 
 def TakeCommand():
     r = sr.Recognizer()
@@ -16,5 +16,6 @@ def TakeCommand():
     except Exception as e:
         print(e)
         print("Can't recognise, try again...")
+        speak("Can't recognise, try again")
         return "None"
     return query

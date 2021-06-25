@@ -25,6 +25,8 @@ from word import word
 from whatsappMessage import WhatsAppMessage
 from ReadSelectedText import read
 from WeatherUpdates import weather
+from Alarm import alarm
+from Camera import Cam
 
 
 from App import app
@@ -106,3 +108,15 @@ if __name__ == '__main__':
 
         elif 'read' in query:
             read()
+
+        elif 'alarm' in query:
+            #speak("At what time should I set the alarm? For example set the alarm to 6:00 am")
+            tt = TakeCommand()
+            tt = tt.replace("set the alarm to ", "")
+            tt = tt.replace(".","")
+            tt = tt.upper()
+            alarm(tt)
+
+        elif 'camera' in query:
+            Cam()
+

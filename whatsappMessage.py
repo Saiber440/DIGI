@@ -7,14 +7,14 @@ from TakeCommand import TakeCommand
 
 def SendWhatsappMessage(phone_number, message):
     Message = message
-    wb.open('https://web.whatsapp.com/send?phone='+phone_number+'&text'+message)
+    wb.open('https://web.whatsapp.com/send?phone={'+phone_number+'}&text={'+Message+'}')
     sleep(10)
     pyautogui.press('enter')
 
 
 def WhatsAppMessage():
     user_name= {
-        'Jarvis':'+91 9433468083'
+        'Jarvis':'+91 7003187066'
     }
     try:
         speak("To whom should I send?")
