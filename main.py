@@ -18,7 +18,7 @@ from urllib.request import urlopen
 import webbrowser as wb
 import wolframalpha
 import pywhatkit
-
+from music import music
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -119,32 +119,8 @@ if __name__ == '__main__':
 
 
         elif 'play music' in query:
+            music()
 
-            speak('You like to listen Online or Offline?')
-            ans = TakeCommand().lower()
-            if 'online' in ans:
-                ans = TakeCommand().lower()
-                speak('What should I play for you?')
-                ans = TakeCommand().lower()
-                speak('playing ' + ans)
-                pywhatkit.playonyt(ans)
-
-
-            elif 'offline' in query:
-
-                songs_dir = 'C:\music'  # path-----------------------------
-                music = os.listdir(songs_dir)
-                speak('What should I play for you?')
-                speak('Select a number....')
-                ans = TakeCommand().lower()
-                while 'number' not in ans and ans != 'random' and ans != 'you choose':
-                    speak('I could not understand you . Please try again.')
-                    ans = TakeCommand().lower()
-                if 'number' in ans:
-                    no = int(ans.replace('number', ''))
-                elif 'random' or 'you choose' in ans:
-                    no = random.randint(1, 100)
-                    os.startfile(os.path.join(songs_dir, music[no]))
 
 
         elif 'remember that' in query:

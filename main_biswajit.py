@@ -21,7 +21,6 @@ from remember import remember_that, remember_anything
 from note import write_note,show_note
 from location import locate
 from offline import offline
-from word import word
 from whatsappMessage import WhatsAppMessage
 from ReadSelectedText import read
 from WeatherUpdates import weather
@@ -85,9 +84,6 @@ if __name__ == '__main__':
 
         elif 'go offline' in query:
             offline()
-
-        elif 'msword' in query:
-            word()
 
         elif 'write a note ' in query:
             write_note()

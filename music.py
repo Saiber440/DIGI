@@ -5,18 +5,17 @@ import os
 import random
 
 
-def music(query):
+def music():
     speak('You like to listen Online or Offline?')
     ans = TakeCommand().lower()
     if 'online' in ans:
-        ans = TakeCommand().lower()
         speak('What should I play for you?')
         ans = TakeCommand().lower()
         speak('playing ' + ans)
         pywhatkit.playonyt(ans)
 
 
-    elif 'offline' in query:
+    elif 'offline' in ans:
 
         songs_dir = 'C:\music'  # path-----------------------------
         music = os.listdir(songs_dir)
