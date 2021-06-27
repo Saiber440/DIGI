@@ -18,7 +18,7 @@ from SEARCH_FUNCTIONS.location import locate
 from CORE.offline import offline
 # from word import word
 #BLABLABLA
-from App import app
+from OPEN_APPS.App import app
 import os
 from Pswgen import passwordgen
 # ====================================================
