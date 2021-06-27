@@ -1,8 +1,6 @@
 import os
 from Speak import speak
-from TakeCommand import TakeCommand
-
-
+from CORE.TakeCommand import TakeCommand
 
 
 def app():
@@ -17,7 +15,7 @@ def app():
         os.startfile(jvm_path)
 
     elif 'chrome' in ans:
-        chrm_path = 'C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Google Chrome.exe'
+        chrm_path = 'C:\\Program Files\\Microsoft\\Windows\\Start Menu\\Programs\\Google Chrome.exe'
         os.startfile(chrm_path)
 
     elif 'notepad' in ans:

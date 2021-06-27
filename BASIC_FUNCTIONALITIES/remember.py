@@ -1,6 +1,6 @@
 import remember
 from Speak import speak
-from TakeCommand import TakeCommand
+from CORE.TakeCommand import TakeCommand
 
 
 def remember_that():

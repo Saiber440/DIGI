@@ -1,24 +1,22 @@
 import pyttsx3
-import Chrome
-from SearchGoogle import GoogleSearch
-from YouTube import YouTubeSearch
-from TakeCommand import TakeCommand
-from Wikipedia import wiki
-from WishMe import WishMe
-from SendEmail import tryout, exception
-from DateAndTime import datetime, date, time
-from cpu import cpu
-from joke import joke
+from SEARCH_FUNCTIONS import Chrome
+from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch
+from SEARCH_FUNCTIONS.YouTube import YouTubeSearch
+from CORE.TakeCommand import TakeCommand
+from SEARCH_FUNCTIONS.Wikipedia import wiki
+from BASIC_FUNCTIONALITIES.WishMe import WishMe
+from BASIC_FUNCTIONALITIES.SendEmail import tryout, exception
+from BASIC_FUNCTIONALITIES.DateAndTime import datetime, date, time
+from BASIC_FUNCTIONALITIES.cpu import cpu
+from PLAY_GAMES.joke import joke
 from Speak import speak
-from screenshot import screenshot
+from BASIC_FUNCTIONALITIES.screenshot import screenshot
 import os
-import random
 import json
 from urllib.request import urlopen
 import webbrowser as wb
 import wolframalpha
-import pywhatkit
-from music import music
+from SEARCH_FUNCTIONS.music import music
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')

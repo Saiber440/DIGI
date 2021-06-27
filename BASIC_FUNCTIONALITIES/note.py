@@ -1,5 +1,5 @@
+from CORE.TakeCommand import TakeCommand
 from Speak import speak
-from TakeCommand import TakeCommand
 import datetime
 
 def write_note():

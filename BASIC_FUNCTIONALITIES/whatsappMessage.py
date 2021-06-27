@@ -2,7 +2,7 @@ import webbrowser as wb
 import pyautogui
 from time import sleep
 from Speak import speak
-from TakeCommand import TakeCommand
+from CORE.TakeCommand import TakeCommand
 
 
 def SendWhatsappMessage(phone_number, message):

@@ -1,5 +1,5 @@
 from Speak import speak
-from TakeCommand import TakeCommand
+from CORE.TakeCommand import TakeCommand
 import pywhatkit
 import os
 import random

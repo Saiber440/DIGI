@@ -1,7 +1,7 @@
 import smtplib
 
 from Speak import speak
-from TakeCommand import TakeCommand
+from CORE.TakeCommand import TakeCommand
 
 
 def SendEmail(to, content):

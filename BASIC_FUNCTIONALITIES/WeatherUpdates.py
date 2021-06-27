@@ -1,4 +1,4 @@
-from TakeCommand import TakeCommand
+from CORE.TakeCommand import TakeCommand
 from Speak import speak
 import requests
 

@@ -1,37 +1,23 @@
 import pyttsx3
 import Chrome
-from SearchGoogle import GoogleSearch
+from SearchOnline import GoogleSearch
 from YouTube import YouTubeSearch
 from TakeCommand import TakeCommand
 from Wikipedia import wiki
 from WishMe import WishMe
 from SendEmail import tryout, exception
 from DateAndTime import date, time
-from cpu import cpu
-from joke import joke
 from Speak import speak
-from screenshot import screenshot
 from calculate import calculate
 from lrs import logout, restart, shutdown
 import wolframalpha
-from sleep import sleep
-from news import news
-from music import music
-from remember import remember_that, remember_anything
-from note import write_note,show_note
-from location import locate
-from offline import offline
-from word import word
+#from sleep import sleep
 from whatsappMessage import WhatsAppMessage
 from ReadSelectedText import read
 from WeatherUpdates import weather
 from Alarm import alarm
 from Camera import Cam
 
-
-from App import app
-import os
-from Pswgen import passwordgen
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -90,8 +76,8 @@ if __name__ == '__main__':
             except StopIteration:
                 print("No Results")
 
-        elif 'stop Listening' in query: # Not Working
-            sleep()
+        # elif 'stop Listening' in query: # Not Working
+        #     sleep()
 
         elif 'logout' in query: # Logout, restart and shutdown not working
             logout()
@@ -112,7 +98,7 @@ if __name__ == '__main__':
         elif 'alarm' in query:
             #speak("At what time should I set the alarm? For example set the alarm to 6:00 am")
             tt = TakeCommand()
-            tt = tt.replace("set the alarm to ", "")
+            tt = tt.replace("set the alarm ", "")
             tt = tt.replace(".","")
             tt = tt.upper()
             alarm(tt)
