@@ -1,6 +1,6 @@
 import pyttsx3
-import Chrome
-from SearchOnline import GoogleSearch
+from SEARCH_FUNCTIONS import Chrome
+from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch
 from YouTube import YouTubeSearch
 from TakeCommand import TakeCommand
 from Wikipedia import wiki
