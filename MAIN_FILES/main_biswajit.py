@@ -17,7 +17,7 @@ from BASIC_FUNCTIONALITIES.note import write_note,show_note
 from SEARCH_FUNCTIONS.location import locate
 from CORE.offline import offline
 # from word import word
-
+#BLABLABLA
 from App import app
 import os
 from Pswgen import passwordgen
