@@ -12,12 +12,11 @@ from PLAY_GAMES.joke import joke
 from BASIC_FUNCTIONALITIES.screenshot import screenshot
 from SEARCH_FUNCTIONS.news import news
 from SEARCH_FUNCTIONS.music import music
-from BASIC_FUNCTIONALITIES.remember import remember_that, remember_anything
+# from BASIC_FUNCTIONALITIES.remember import remember_that, remember_anything
 from BASIC_FUNCTIONALITIES.note import write_note,show_note
 from SEARCH_FUNCTIONS.location import locate
 from CORE.offline import offline
 # from word import word
-#BLABLABLA
 from OPEN_APPS.App import app
 import os
 from Pswgen import passwordgen
@@ -90,11 +89,11 @@ if __name__ == '__main__':
         elif 'play music' in query:
             music()
 
-        elif 'remember that' in query:
-            remember_that()
-
-        elif 'do you remember anything' in query:
-            remember_anything()
+        # elif 'remember that' in query:
+        #     remember_that()
+        #
+        # elif 'do you remember anything' in query:
+        #     remember_anything()
 
         elif 'news' in query:
             news()
