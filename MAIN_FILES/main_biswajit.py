@@ -1,21 +1,21 @@
 import pyttsx3
 from SEARCH_FUNCTIONS import Chrome
 from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch
-from YouTube import YouTubeSearch
-from TakeCommand import TakeCommand
-from Wikipedia import wiki
-from WishMe import WishMe
-from SendEmail import tryout, exception
-from DateAndTime import date, time
-from cpu import cpu
-from joke import joke
-from screenshot import screenshot
-from news import news
-from music import music
-from remember import remember_that, remember_anything
-from note import write_note,show_note
-from location import locate
-from offline import offline
+from SEARCH_FUNCTIONS.YouTube import YouTubeSearch
+from CORE.TakeCommand import TakeCommand
+from SEARCH_FUNCTIONS.Wikipedia import wiki
+from BASIC_FUNCTIONALITIES.WishMe import WishMe
+from BASIC_FUNCTIONALITIES.SendEmail import tryout, exception
+from BASIC_FUNCTIONALITIES.DateAndTime import date, time
+from BASIC_FUNCTIONALITIES.cpu import cpu
+from PLAY_GAMES.joke import joke
+from BASIC_FUNCTIONALITIES.screenshot import screenshot
+from SEARCH_FUNCTIONS.news import news
+from SEARCH_FUNCTIONS.music import music
+from BASIC_FUNCTIONALITIES.remember import remember_that, remember_anything
+from BASIC_FUNCTIONALITIES.note import write_note,show_note
+from SEARCH_FUNCTIONS.location import locate
+from CORE.offline import offline
 # from word import word
 
 from App import app

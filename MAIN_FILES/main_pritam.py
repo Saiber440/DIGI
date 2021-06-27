@@ -1,14 +1,14 @@
 import pyttsx3
 from SEARCH_FUNCTIONS import Chrome
-from CloseJarvis import ExitYourself
-from SearchOnline import GoogleSearch, BingSearch
-from WeatherByPritam import WeatherTemp
-from YouTube import YouTubeSearch
-from TakeCommand import TakeCommand
-from Wikipedia import wiki
-from SendEmail import tryout, exception
-from DateAndTime import date, time
-from batterycheck import BatteryInfo
+from CORE.CloseJarvis import ExitYourself
+from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch, BingSearch
+from BASIC_FUNCTIONALITIES.WeatherByPritam import WeatherTemp
+from SEARCH_FUNCTIONS.YouTube import YouTubeSearch
+from CORE.TakeCommand import TakeCommand
+from SEARCH_FUNCTIONS.Wikipedia import wiki
+from BASIC_FUNCTIONALITIES.SendEmail import tryout, exception
+from BASIC_FUNCTIONALITIES.DateAndTime import date, time
+from BASIC_FUNCTIONALITIES.batterycheck import BatteryInfo
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -27,7 +27,6 @@ if __name__ == '__main__':
         #     break
         # elif "goodbye" in permission:
         #     sys.exit()
-
         query = TakeCommand().lower()
 
         if 'time' in query:
