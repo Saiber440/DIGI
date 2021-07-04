@@ -1,6 +1,7 @@
 from CORE.TakeCommand import TakeCommand
-from Speak import speak
+from CORE.Speak import speak
 import datetime
+
 
 def write_note():
     speak("What should I Write, Sir? ")
@@ -16,6 +17,8 @@ def write_note():
         speak('I got your note ,Sir!')
     else:
         file.write(notes)
+        speak('I got your note ,Sir!')
+
 
 def show_note():
     speak('Showing NOTES')

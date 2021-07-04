@@ -1,14 +1,13 @@
 import datetime
-from Speak import speak
+from CORE.Speak import speak
 import pyttsx3
 engine = pyttsx3.init()
 
 
 
 def time():
-    Time = datetime.datetime.now().strftime("%I:%M:%S")
-    speak("The current time is")
-    speak(Time)
+    Time = (datetime.datetime.now()).strftime("%I:%M %p")
+    speak(f"The current time is: {Time}")
 
 
 def date():

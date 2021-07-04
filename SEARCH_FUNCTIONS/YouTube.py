@@ -1,4 +1,4 @@
-from Speak import speak
+from CORE.Speak import speak
 from CORE.TakeCommand import TakeCommand
 import webbrowser as wb
 

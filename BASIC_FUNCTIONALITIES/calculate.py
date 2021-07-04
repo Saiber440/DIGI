@@ -1,4 +1,4 @@
-from Speak import speak
+from CORE.Speak import speak
 import wolframalpha
 wolframalpha_app_id = 'EJ3QJT-2YHHU3AYK7'
 

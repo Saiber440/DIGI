@@ -1,7 +1,7 @@
 import webbrowser as wb
 import pyautogui
 from time import sleep
-from Speak import speak
+from CORE.Speak import speak
 from CORE.TakeCommand import TakeCommand
 
 

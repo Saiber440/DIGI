@@ -1,11 +1,13 @@
 import speech_recognition as sr
-from Speak import speak
+from CORE.Speak import speak
+
 
 def TakeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
         r.pause_threshold = 1
+        r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
         #audio = r.listen(source, timeout=5, phrase_time_limit=5)
 
@@ -19,5 +21,6 @@ def TakeCommand():
         print("Can't recognise, try again...")
         speak("Can't recognise, try again")
         return "None"
+    query = query.lower()
 
     return query
