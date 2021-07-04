@@ -117,8 +117,7 @@ if __name__ == '__main__':
 
         elif 'alarm' in query:
             #speak("At what time should I set the alarm? For example set the alarm to 6:00 am")
-            tt = TakeCommand()
-            tt = tt.replace("set the alarm ", "")
+            tt = query.replace("set the alarm to ", "")
             tt = tt.replace(".","")
             tt = tt.upper()
             alarm(tt)
@@ -130,11 +129,11 @@ if __name__ == '__main__':
             offline()
 
         elif 'remember that' in query:
-            tc = TakeCommand()
-            tc = tc.replace("remember that ", "")
+
+            tc = query.replace("remember that ", "")
             remember_that(tc)
 
         elif 'remember anything' in query:
-            remember_anything(remember_that(tc))
+            remember_anything()
 
 

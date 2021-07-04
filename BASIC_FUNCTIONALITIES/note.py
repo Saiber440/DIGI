@@ -1,6 +1,8 @@
 from CORE.TakeCommand import TakeCommand
 from CORE.Speak import speak
 import datetime
+import os
+
 
 
 def write_note():
@@ -22,6 +24,6 @@ def write_note():
 
 def show_note():
     speak('Showing NOTES')
-    file = open('notes.txt', 'r')
+    file = open('notes.txt','r')
     print(file.read())
     speak(file.read())

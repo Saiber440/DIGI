@@ -7,6 +7,7 @@ def TakeCommand():
     with sr.Microphone() as source:
         print("Listening...")
         r.pause_threshold = 1
+        #r.listen(source,timeout=2)
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
         #audio = r.listen(source, timeout=5, phrase_time_limit=5)

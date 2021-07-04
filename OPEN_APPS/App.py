@@ -1,5 +1,5 @@
 import os
-from Speak import speak
+from CORE.Speak import speak
 from CORE.TakeCommand import TakeCommand
 
 
