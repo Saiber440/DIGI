@@ -1,6 +1,6 @@
 from wikipedia import wikipedia
 
-from Speak import speak
+from CORE.Speak import speak
 
 
 def wiki(query):

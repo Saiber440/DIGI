@@ -1,5 +1,5 @@
 import clipboard
-from Speak import speak
+from CORE.Speak import speak
 
 
 def read():

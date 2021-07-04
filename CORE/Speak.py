@@ -1,5 +1,5 @@
-import pyttsx3
-engine = pyttsx3.init()
+from pyttsx3 import init
+engine = init()
 
 
 def speak(audio):

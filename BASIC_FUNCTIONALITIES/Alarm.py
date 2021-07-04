@@ -1,7 +1,7 @@
 # import os
 import datetime
 from playsound import playsound
-from Speak import speak
+from CORE.Speak import speak
 # from TakeCommand import TakeCommand
 # os. system('clear')
 # speak("What hour do you want the alarm to ring? ")
