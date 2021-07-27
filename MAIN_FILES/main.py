@@ -9,7 +9,7 @@ from BASIC_FUNCTIONALITIES.SendEmail import tryout, exception
 from BASIC_FUNCTIONALITIES.DateAndTime import datetime, date, time
 from BASIC_FUNCTIONALITIES.cpu import cpu
 from PLAY_GAMES.joke import joke
-from Speak import speak
+from CORE.Speak import speak
 from BASIC_FUNCTIONALITIES.screenshot import screenshot
 import os
 import json

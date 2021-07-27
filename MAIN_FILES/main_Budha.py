@@ -1,3 +1,5 @@
+import sys
+
 import pyttsx3
 from SEARCH_FUNCTIONS import Chrome
 from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch
@@ -23,6 +25,14 @@ from BASIC_FUNCTIONALITIES.note import write_note,show_note
 from BASIC_FUNCTIONALITIES.cpu import cpu
 from CORE.offline import offline
 from BASIC_FUNCTIONALITIES.remember import remember_that,remember_anything
+from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5.QtCore import QTimer, QDate, Qt
+from PyQt5.QtGui import QMovie
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from PyQt5.uic import loadUiType
+from untitled import Ui_MainWindow
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -32,108 +42,147 @@ wolframalpha_app_id = 'EJ3QJT-2YHHU3AYK7'
 
 
 # ========================== Pritam Day =========================
+class MainThread(QThread):
+    def __init__(self):
+        super(MainThread,self).__init__()
+    def run(self):
+        self.TaskExecution()
+
+# if __name__ == '__main__':
+    def TaskExecution(self):
+        WishMe()
+
+        while True:
+
+            self.query = self.TakeCommand().lower()
+
+            if 'time' in self.query:
+                time()
+
+            elif 'date' in self.query:
+                date()
+
+            elif 'wikipedia' in self.query:
+                wiki()
+
+            elif 'send email' in self.query:
+                try:
+                    tryout()
+                except:
+                    exception()
+
+            elif 'search internet' in self.query:
+                Chrome.ChromeSearch()
+
+            elif 'battery' in self.query:
+                BatteryInfo()
+
+            elif 'cpu' in self.query:
+                cpu()
+
+            elif 'search youtube' in self.query:
+                YouTubeSearch()
+
+            elif 'search google' in self.query:
+                GoogleSearch()
+
+            elif 'screenshot' in self.query:
+                screenshot()
+
+            elif 'write a note' in self.query:
+                write_note()
+
+            elif 'show me notes' in self.query:
+                show_note()
 
 
-if __name__ == '__main__':
+            # ============================= Budhaditya Sarkar ===================================
 
-    WishMe()
+            elif 'calculate' in self.query:
+                calculate(self.query)
 
-    while True:
+            elif 'what is' in self.query:
+                client = wolframalpha.Client(wolframalpha_app_id)
+                res = client.self.query(self.query)
+                try:
+                    print(next(res.results).text)
+                    speak(next(res.results).text)
+                except StopIteration:
+                    print("No Results")
 
-        query = TakeCommand().lower()
+            # elif 'stop Listening' in self.query: # Not Working
+            #     sleep()
 
-        if 'time' in query:
-            time()
+            elif 'logout' in self.query: # Logout, restart and shutdown not working
+                logout()
+            elif 'restart' in self.query:
+                restart()
+            elif 'shutdown' in self.query:
+                shutdown()
 
-        elif 'date' in query:
-            date()
+            elif 'whatsapp message' in self.query:
+                WhatsAppMessage()
 
-        elif 'wikipedia' in query:
-            wiki()
+            elif 'Weather' in self.query:
+                weather()
 
-        elif 'send email' in query:
-            try:
-                tryout()
-            except:
-                exception()
+            elif 'read' in self.query:
+                read()
 
-        elif 'search internet' in query:
-            Chrome.ChromeSearch()
+            elif 'alarm' in self.query:
+                #speak("At what time should I set the alarm? For example set the alarm to 6:00 am")
+                tt = self.query.replace("set the alarm to ", "")
+                tt = tt.replace(".","")
+                tt = tt.upper()
+                alarm(tt)
 
-        elif 'battery' in query:
-            BatteryInfo()
+            elif 'camera' in self.query:
+                Cam()
 
-        elif 'cpu' in query:
-            cpu()
+            elif 'go offline' in self.query:
+                offline()
 
-        elif 'search youtube' in query:
-            YouTubeSearch()
+            elif 'remember that' in self.query:
 
-        elif 'search google' in query:
-            GoogleSearch()
+                tc = self.query.replace("remember that ", "")
+                remember_that(tc)
 
-        elif 'screenshot' in query:
-            screenshot()
+            elif 'remember anything' in self.query:
+                remember_anything()
 
-        elif 'write a note' in query:
-            write_note()
+startExecution = MainThread()
 
-        elif 'show me notes' in query:
-            show_note()
+class Main(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.ui.pushButton.clicked.connect(self.startTask)
+        self.ui.pushButton_2.clicked.connect(self.close)
 
+    def startTask(self):
+        self.ui.movie = QtGui.QMovie("Uhy5.gif")
+        self.ui.label.setMovie(self.ui.movie)
+        self.ui.movie.start()
+        self.ui.movie = QtGui.QMovie("ff0431d11ff6b73e937280252f58f371.gif")
+        self.ui.label_2.setMovie(self.ui.movie)
+        self.ui.movie.start()
+        timer = QTimer(self)
+        timer.timeout.connect(self.showTime)
+        timer.start(1000)
+        startExecution.start()
 
-        # ============================= Budhaditya Sarkar ===================================
+    def showTime(self):
+        current_time = QTime.currentTime()
+        current_date = QDate.currentDate()
+        label_time = current_time.toString(Qt.DefaultLocaleShortDate)
+        label_date = current_date.toString(Qt.ISODate)
+        self.ui.textBrowser.setText(label_time)
+        self.ui.textBrowser_2.setText(label_date)
 
-        elif 'calculate' in query:
-            calculate(query)
-
-        elif 'what is' in query:
-            client = wolframalpha.Client(wolframalpha_app_id)
-            res = client.query(query)
-            try:
-                print(next(res.results).text)
-                speak(next(res.results).text)
-            except StopIteration:
-                print("No Results")
-
-        # elif 'stop Listening' in query: # Not Working
-        #     sleep()
-
-        elif 'logout' in query: # Logout, restart and shutdown not working
-            logout()
-        elif 'restart' in query:
-            restart()
-        elif 'shutdown' in query:
-            shutdown()
-
-        elif 'whatsapp message' in query:
-            WhatsAppMessage()
-
-        elif 'Weather' in query:
-            weather()
-
-        elif 'read' in query:
-            read()
-
-        elif 'alarm' in query:
-            #speak("At what time should I set the alarm? For example set the alarm to 6:00 am")
-            tt = query.replace("set the alarm to ", "")
-            tt = tt.replace(".","")
-            tt = tt.upper()
-            alarm(tt)
-
-        elif 'camera' in query:
-            Cam()
-
-        elif 'go offline' in query:
-            offline()
-
-        elif 'remember that' in query:
-
-            tc = query.replace("remember that ", "")
-            remember_that(tc)
-
-        elif 'remember anything' in query:
-            remember_anything()
+app = QApplication(sys.argv)
+digi = Main()
+digi.show()
+exit(app.exec_())
 
 
