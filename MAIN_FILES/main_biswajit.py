@@ -9,6 +9,8 @@ from BASIC_FUNCTIONALITIES.SendEmail import tryout, exception
 from BASIC_FUNCTIONALITIES.DateAndTime import date, time
 from BASIC_FUNCTIONALITIES.cpu import cpu
 from PLAY_GAMES.joke import joke
+from PLAY_GAMES.flipacoin import flip
+from PLAY_GAMES.rolladice import roll
 from BASIC_FUNCTIONALITIES.screenshot import screenshot
 from SEARCH_FUNCTIONS.news import news
 from SEARCH_FUNCTIONS.music import music
@@ -109,3 +111,9 @@ if __name__ == '__main__':
 
         elif 'generate password' in query:
             passwordgen()
+
+        elif 'toss' in query:
+            flip()
+
+        elif 'roll a dice' in query:
+            roll()
