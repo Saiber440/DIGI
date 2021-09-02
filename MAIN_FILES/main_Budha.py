@@ -74,14 +74,14 @@ class MainThread(QThread):
             elif 'search internet' in self.query:
                 Chrome.ChromeSearch()
 
+            elif 'search youtube' in self.query:
+                YouTubeSearch()
+
             elif 'battery' in self.query:
                 BatteryInfo()
 
             elif 'cpu' in self.query:
                 cpu()
-
-            elif 'search youtube' in self.query:
-                YouTubeSearch()
 
             elif 'search google' in self.query:
                 GoogleSearch()

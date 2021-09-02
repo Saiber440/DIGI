@@ -1,5 +1,5 @@
 import random
-from Speak import speak
+from CORE.Speak import speak
 
 
 def roll():

@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from Speak import speak
+from CORE.Speak import speak
 
 
 def WeatherTemp():

@@ -1,4 +1,4 @@
-from Speak import speak
+from CORE.Speak import speak
 import webbrowser as wb
 
 def locate(query):
