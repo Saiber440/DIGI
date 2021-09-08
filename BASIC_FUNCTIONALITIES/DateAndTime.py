@@ -4,7 +4,6 @@ import pyttsx3
 engine = pyttsx3.init()
 
 
-
 def time():
     Time = (datetime.datetime.now()).strftime("%I:%M %p")
     speak(f"The current time is: {Time}")

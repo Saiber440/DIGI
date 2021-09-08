@@ -22,3 +22,14 @@ def app():
         nt_pad = 'C:\\Windows\\System32\\notepad.exe'
         os.startfile(nt_pad)
 
+    elif 'close notepad' in ans:
+        speak("Closing Notepad")
+        os.system("taskkill /f /im notepad.exe")
+
+    elif 'drive' in ans:
+        nt_pad = 'C:\\Windows\\System32\\dfrgui.exe'
+        os.startfile(nt_pad)
+
+    elif 'cleaner' in ans:
+        nt_pad = 'C:\\Windows\\System32\\cleanmgr.exe'
+        os.startfile(nt_pad)

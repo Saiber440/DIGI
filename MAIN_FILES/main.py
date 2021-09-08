@@ -1,9 +1,6 @@
 import pyttsx3
-from SEARCH_FUNCTIONS import Chrome
-from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch
 from SEARCH_FUNCTIONS.YouTube import YouTubeSearch
 from CORE.TakeCommand import TakeCommand
-from SEARCH_FUNCTIONS.Wikipedia import wiki
 from BASIC_FUNCTIONALITIES.WishMe import WishMe
 from BASIC_FUNCTIONALITIES.SendEmail import tryout, exception
 from BASIC_FUNCTIONALITIES.DateAndTime import datetime, date, time
@@ -24,10 +21,6 @@ engine.setProperty('voice', voices[1].id)
 wolframalpha_app_id = 'EJ3QJT-2YHHU3AYK7'
 # ========================================
 
-
-# ========================== Pritam Day =========================
-
-
 if __name__ == '__main__':
 
     WishMe()
@@ -42,45 +35,26 @@ if __name__ == '__main__':
         elif 'date' in query:
             date()
 
-        elif 'wikipedia' in query:
-            wiki()
-
         elif 'send email' in query:
             try:
                 tryout()
             except:
                 exception()
 
-        elif 'search internet' in query:
-            Chrome.ChromeSearch()
-
         elif 'search youtube' in query:
             YouTubeSearch()
 
-        elif 'search google' in query:
-            GoogleSearch()
-
-
-        # ========================== Biswajit Kar =========================
-
         elif 'cpu' in query:
-
             cpu()
 
-
         elif 'joke' in query:
-
             joke()
 
-
         elif 'go offline' in query:
-
             speak('Going offline Sir!  See yaa')
             quit()
 
-
         elif 'word' in query:
-
             speak('Opening MS word...')
             ma_word = r' ==============================.exe'  # path for the app
             os.startfile(ma_word)

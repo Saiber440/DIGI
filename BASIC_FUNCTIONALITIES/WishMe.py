@@ -1,5 +1,4 @@
 import time
-
 from CORE.Speak import speak
 import pyttsx3
 engine = pyttsx3.init()
@@ -10,7 +9,7 @@ def WishMe():
     speak("WELCOME BACK")
     datetime.time()
     # datetime.date()
-    tt= time.strftime("%I:%M %p")
+    tt = time.strftime("%I:%M %p")
 
     hour = datetime.datetime.now().hour
     if hour >= 6 and hour <=12:

@@ -1,4 +1,4 @@
-from CORE.Speak import speak
+from Speak import speak
 from CORE.TakeCommand import TakeCommand
 import pywhatkit
 import os

@@ -1,11 +1,10 @@
 import sys
-
 import pyttsx3
-from SEARCH_FUNCTIONS import Chrome
-from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch
+#from SEARCH_FUNCTIONS import Chrome
+from SEARCH_FUNCTIONS.SearchOnline import SearchOnline
 from SEARCH_FUNCTIONS.YouTube import YouTubeSearch
 from CORE.TakeCommand import TakeCommand
-from SEARCH_FUNCTIONS.Wikipedia import wiki
+from SEARCH_FUNCTIONS.WikiHow import HowTo
 from BASIC_FUNCTIONALITIES.WishMe import WishMe
 from BASIC_FUNCTIONALITIES.SendEmail import tryout, exception
 from BASIC_FUNCTIONALITIES.DateAndTime import date, time
@@ -63,7 +62,7 @@ class MainThread(QThread):
                 date()
 
             elif 'wikipedia' in self.query:
-                wiki()
+                HowTo()
 
             elif 'send email' in self.query:
                 try:
@@ -71,8 +70,8 @@ class MainThread(QThread):
                 except:
                     exception()
 
-            elif 'search internet' in self.query:
-                Chrome.ChromeSearch()
+            # elif 'search internet' in self.query:
+            #     Chrome.ChromeSearch()
 
             elif 'search youtube' in self.query:
                 YouTubeSearch()
@@ -83,8 +82,8 @@ class MainThread(QThread):
             elif 'cpu' in self.query:
                 cpu()
 
-            elif 'search google' in self.query:
-                GoogleSearch()
+            # elif 'search google' in self.query:
+            #     GoogleSearch()
 
             elif 'screenshot' in self.query:
                 screenshot()
@@ -184,5 +183,3 @@ app = QApplication(sys.argv)
 digi = Main()
 digi.show()
 exit(app.exec_())
-
-

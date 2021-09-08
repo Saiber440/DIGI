@@ -14,11 +14,11 @@ from BASIC_FUNCTIONALITIES.remember import remember_that,remember_anything
 from CORE.CloseJarvis import ExitYourself
 from BASIC_FUNCTIONALITIES.WeatherByPritam import WeatherTemp
 import pyttsx3
-from SEARCH_FUNCTIONS import Chrome
-from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch, BingSearch
+#from SEARCH_FUNCTIONS import Chrome
+#from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch, BingSearch
 from SEARCH_FUNCTIONS.YouTube import YouTubeSearch
 from CORE.TakeCommand import TakeCommand
-from SEARCH_FUNCTIONS.Wikipedia import wiki
+#from SEARCH_FUNCTIONS.Wikipedia import wiki
 from BASIC_FUNCTIONALITIES.WishMe import WishMe
 from BASIC_FUNCTIONALITIES.SendEmail import tryout, exception
 from BASIC_FUNCTIONALITIES.DateAndTime import date, time
