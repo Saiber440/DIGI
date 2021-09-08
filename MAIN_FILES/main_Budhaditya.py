@@ -30,6 +30,7 @@ from PLAY_GAMES.rck_ppr_scr import RockPaperScissor
 from BASIC_FUNCTIONALITIES.screenshot import screenshot
 from SEARCH_FUNCTIONS.news import news
 from SEARCH_FUNCTIONS.music import music
+from SEARCH_FUNCTIONS.WikiHow import HowTo
 # from BASIC_FUNCTIONALITIES.remember import remember_that, remember_anything
 from BASIC_FUNCTIONALITIES.note import write_note,show_note
 from SEARCH_FUNCTIONS.location import locate
@@ -38,6 +39,7 @@ from CORE.offline import offline
 from OPEN_APPS.App import app
 import os
 from Pswgen import passwordgen
+
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -64,7 +66,7 @@ if __name__ == '__main__':
             date()
 
         elif 'wikipedia' in query:
-            wiki()
+            HowTo(query)
 
         elif 'send email' in query:
             try:
@@ -72,14 +74,14 @@ if __name__ == '__main__':
             except:
                 exception()
 
-        elif 'search internet' in query:
-            Chrome.ChromeSearch()
+        #elif 'search internet' in query:
+         #   Chrome.ChromeSearch()
 
         elif 'search youtube' in query:
             YouTubeSearch()
 
-        elif 'search google' in query:
-            GoogleSearch()
+        #elif 'search google' in query:
+         #   GoogleSearch()
             
         elif 'battery' in query:
             BatteryInfo()
@@ -90,8 +92,8 @@ if __name__ == '__main__':
         elif 'stop' in query:
             ExitYourself()
 
-        elif 'search bing' in query:
-            BingSearch()
+        #elif 'search bing' in query:
+         #   BingSearch()
 
         # ========================== Biswajit Kar =========================
 
@@ -126,12 +128,12 @@ if __name__ == '__main__':
             news()
 
         elif 'where is' in query:
-            locate()
+            locate(query)
 
         elif 'open app' in query:
             app()
 
-        elif 'open my doc' in query:
+        elif 'open my documents' in query:
             os.system('explorer C://{}'.format(query.replace('Open','')))
 
         elif 'generate password' in query:

@@ -168,7 +168,7 @@ class Main(QMainWindow):
         self.ui.movie.start()
         timer = QTimer(self)
         timer.timeout.connect(self.showTime)
-        timer.start(1000)
+        timer.start()
         startExecution.start()
 
     def showTime(self):

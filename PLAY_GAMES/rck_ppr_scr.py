@@ -100,5 +100,5 @@ def RockPaperScissor():
 
     # after coming out of the while loop
     # we print thanks for playing
-speak("Thanks for playing")
-print("\nThanks for playing")
+    speak("Thanks for playing")
+    print("\nThanks for playing")
