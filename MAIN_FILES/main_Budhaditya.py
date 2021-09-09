@@ -86,8 +86,8 @@ if __name__ == '__main__':
         elif 'battery' in query:
             BatteryInfo()
 
-        elif 'temperature' in query:
-            WeatherTemp()
+        elif 'weather' or 'temperature' or 'humidity' in query:
+            WeatherTemp(query)
 
         elif 'stop' in query:
             ExitYourself()

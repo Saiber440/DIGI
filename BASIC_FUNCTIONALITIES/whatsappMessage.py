@@ -7,8 +7,7 @@ from CORE.TakeCommand import TakeCommand
 
 def SendWhatsappMessage(phone_number, message):
     #Message = message
-    wb.open('https://web.whatsapp.com/send?phone={'+phone_number+'}&text='+message+''
-                                                                                   '')
+    wb.open('https://web.whatsapp.com/send?phone={'+phone_number+'}&text='+message+'')
     pyautogui.press('enter')
     sleep(10)
 
