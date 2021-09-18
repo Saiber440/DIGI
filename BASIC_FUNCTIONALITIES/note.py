@@ -6,7 +6,7 @@ import os
 
 
 def write_note():
-    speak("What should I Write, Sir? ")
+    speak("What is your note? ")
     notes = TakeCommand()
     file = open('notes.txt', 'w')
     speak("Sir Should I include date and time ")
