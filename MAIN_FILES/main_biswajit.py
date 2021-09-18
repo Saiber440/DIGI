@@ -114,7 +114,7 @@ if __name__ == '__main__':
         elif 'open app' in query:
             app()
 
-        elif 'open my doc' in query:
+        elif 'open my document' in query:
             os.system('explorer C://{}'.format(query.replace('Open','')))
 
         elif 'generate password' in query:

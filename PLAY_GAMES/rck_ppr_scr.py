@@ -5,12 +5,12 @@ import random
 # Print multiline instruction
 # performstring concatenation of string
 def RockPaperScissor():
-    speak("Winning Rules of the Rock paper scissor game as follows: \n"
+    print("Winning Rules of the Rock paper scissor game as follows: \n"
           + "Rock vs paper->paper wins \n"
           + "Rock vs scissor->Rock wins \n"
           + "paper vs scissor->scissor wins \n")
 
-    print("Winning Rules of the Rock paper scissor game as follows: \n"
+    speak("Winning Rules of the Rock paper scissor game as follows: \n"
           + "Rock vs paper->paper wins \n"
           + "Rock vs scissor->Rock wins \n"
           + "paper vs scissor->scissor wins \n")
@@ -30,19 +30,19 @@ def RockPaperScissor():
         # OR is the short-circuit operator
         # if any one of the condition is true
         # then it return True value
-
         # looping until user enter invalid input
         while choice > 3 or choice < 1:
-            choice = int(input("enter valid input: "))
+            print("\nEnter valid input: ")
+            choice = TakeCommand().lower()
 
         # initialize value of choice_name variable
         # corresponding to the choice value
-        if '1' or 'rock' in choice:
-            choice_name = 'Rock'
-        elif '2' or 'paper' in choice:
-            choice_name = 'paper'
+        if 'one' or 'rock' in choice:
+            choice_name == 1
+        elif 'two' or 'paper' in choice:
+            choice_name ==2
         else:
-            choice_name = 'scissor'
+            choice_name == 3
 
         # print user choice
         print("user choice is: " + choice_name)
@@ -92,7 +92,7 @@ def RockPaperScissor():
             print("<== Computer wins ==>")
 
         print("Do you want to play again? (Y/N)")
-        ans = TakeCommand()
+        ans = TakeCommand().lower()
 
         # if user input n or N then condition is True
         if ans == 'n' or ans == 'N':

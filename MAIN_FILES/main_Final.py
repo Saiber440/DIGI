@@ -38,7 +38,8 @@ from CORE.offline import offline
 # from word import word
 from OPEN_APPS.App import app
 import os
-from Pswgen import passwordgen
+from BASIC_FUNCTIONALITIES.Pswgen import passwordgen
+from BASIC_FUNCTIONALITIES.CheckInternetSpeed import InternetSpeed
 
 # ====================================================
 engine = pyttsx3.init()
@@ -112,7 +113,7 @@ if __name__ == '__main__':
         elif 'write a note ' in query:
             write_note()
 
-        elif 'Show me notes' in query:
+        elif 'Show me note' in query:
             show_note()
 
         elif 'play music' in query:
@@ -203,7 +204,8 @@ if __name__ == '__main__':
         elif 'rock paper scissor' in query:
             RockPaperScissor()
 
-
+        elif 'Check internet speed' in query:
+            InternetSpeed()
 
 
         
