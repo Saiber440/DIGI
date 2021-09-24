@@ -1,9 +1,23 @@
+import sys
+from CORE.Speak import speak
+from BASIC_FUNCTIONALITIES.calculate import calculate
+from CORE.lrs import logout, restart, shutdown
+import wolframalpha
+from BASIC_FUNCTIONALITIES.whatsappMessage import WhatsAppMessage
+from BASIC_FUNCTIONALITIES.ReadSelectedText import read
+from BASIC_FUNCTIONALITIES.WeatherUpdates import weather
+from BASIC_FUNCTIONALITIES.Alarm import alarm
+from OPEN_APPS.Camera import Cam
+from BASIC_FUNCTIONALITIES.batterycheck import BatteryInfo
+from BASIC_FUNCTIONALITIES.remember import remember_that,remember_anything
+from CORE.CloseJarvis import ExitYourself
+#from BASIC_FUNCTIONALITIES.WeatherByPritam import WeatherTemp
 import pyttsx3
-from SEARCH_FUNCTIONS import Chrome
-from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch
+#from SEARCH_FUNCTIONS import Chrome
+#from SEARCH_FUNCTIONS.SearchOnline import GoogleSearch
 from SEARCH_FUNCTIONS.YouTube import YouTubeSearch
 from CORE.TakeCommand import TakeCommand
-from SEARCH_FUNCTIONS.Wikipedia import wiki
+#from SEARCH_FUNCTIONS.Wikipedia import wiki
 from BASIC_FUNCTIONALITIES.WishMe import WishMe
 from BASIC_FUNCTIONALITIES.SendEmail import tryout, exception
 from BASIC_FUNCTIONALITIES.DateAndTime import date, time
@@ -11,6 +25,7 @@ from BASIC_FUNCTIONALITIES.cpu import cpu
 from PLAY_GAMES.joke import joke
 from PLAY_GAMES.flipacoin import flip
 from PLAY_GAMES.rolladice import roll
+from PLAY_GAMES.rck_ppr_scr import RockPaperScissor
 from BASIC_FUNCTIONALITIES.screenshot import screenshot
 from SEARCH_FUNCTIONS.news import news
 from SEARCH_FUNCTIONS.music import music
@@ -22,6 +37,7 @@ from CORE.offline import offline
 from OPEN_APPS.App import app
 import os
 from Pswgen import passwordgen
+from BASIC_FUNCTIONALITIES.CheckInternetSpeed import InternetSpeed
 # ====================================================
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -56,14 +72,26 @@ if __name__ == '__main__':
             except:
                 exception()
 
-        elif 'search internet' in query:
-            Chrome.ChromeSearch()
+       # elif 'search internet' in query:
+           # Chrome.ChromeSearch()
 
         elif 'search youtube' in query:
             YouTubeSearch()
 
-        elif 'search google' in query:
-            GoogleSearch()
+       # elif 'search youtube' in query:
+            #YouTubeSearch()
+
+        elif 'battery' in query:
+            BatteryInfo()
+
+        # elif 'weather' or 'temperature' or 'humidity' in query:
+        #     WeatherTemp(query)
+
+        elif 'stop' in query:
+            ExitYourself()
+
+        #elif 'search google' in query:
+            #GoogleSearch()
 
         # ========================== Biswajit Kar =========================
 
@@ -112,8 +140,68 @@ if __name__ == '__main__':
         elif 'generate password' in query:
             passwordgen()
 
+        elif 'calculate' in query:
+            calculate(query)
+
+        elif 'what is' in query:
+            client = wolframalpha.Client(wolframalpha_app_id)
+            res = client.query(query)
+            try:
+                print(next(res.results).text)
+                speak(next(res.results).text)
+            except StopIteration:
+                print("No Results")
+
+        elif 'logout' in query:  # Logout, restart and shutdown not working
+            logout()
+
+        elif 'restart' in query:
+            restart()
+
+        elif 'shutdown' in query:
+            shutdown()
+
+        elif 'whatsapp message' in query:
+            WhatsAppMessage()
+
+        elif 'Weather' in query:
+            weather()
+
+        elif 'read' in query:
+            read()
+
+        elif 'alarm' in query:
+            # speak("At what time should I set the alarm? For example set the alarm to 6:00 am")
+            tt = query.replace("set the alarm to ", "")
+            tt = tt.replace(".", "")
+            tt = tt.upper()
+            alarm(tt)
+
+        elif 'camera' in query:
+            Cam()
+
+        elif 'go offline' in query:
+            offline()
+
+        elif 'remember that' in query:
+
+            tc = query.replace("remember that ", "")
+            remember_that(tc)
+
+        elif 'remember anything' in query:
+            remember_anything()
+
+        elif 'screenshot' in query:
+            screenshot()
+
         elif 'toss' in query:
             flip()
 
         elif 'roll a dice' in query:
             roll()
+
+        elif 'rock paper scissor' in query:
+            RockPaperScissor()
+
+        elif 'Check internet speed' in query:
+            InternetSpeed()

@@ -1,4 +1,4 @@
-from Speak import speak
+from CORE.Speak import speak
 from urllib.request import urlopen
 import json
 
@@ -6,7 +6,7 @@ import json
 def news():
     try:
         jsonObj = urlopen(
-            "https://newsapi.org/v2/everything?q=tesla&from=2021-04-08&sortBy=publishedAt&apiKey=26c630d9757c4ef9b4c11a550821ff42")  # url-------------------------------
+            "https://newsapi.org/v2/everything?q=tesla&from=2021-08-08&sortBy=publishedAt&apiKey=eea1fa3cfd014438a9190b5cf0fb4949")  # url-------------------------------
         data = json.load(jsonObj)
         i = 1
 
@@ -20,3 +20,19 @@ def news():
 
     except Exception as e:
         print(str(e))
+
+
+#import requests
+#
+# url = "https://bing-news-search1.p.rapidapi.com/news/trendingtopics"
+#
+# querystring = {"safeSearch":"Off","textFormat":"Raw"}
+#
+# headers = {
+#     'x-bingapis-sdk': "true",
+#     'x-rapidapi-host': "bing-news-search1.p.rapidapi.com",
+#     'x-rapidapi-key': "90bc66677cmsh388c8ecd3ec6cbdp117ebcjsne01bd9f163dd"
+#     }
+#
+# response = requests.request("GET", url, headers=headers, params=querystring)
+#
